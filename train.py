@@ -9,15 +9,15 @@ import unicodedata
 import sys
 from collections import Counter
 import nltk
-# nltk.download('brown')
+nltk.download('brown')
 from nltk.corpus import brown
 from nltk import word_tokenize
-# nltk.download('punkt')
-# nltk.download('stopwords')
-# nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
 from nltk.corpus import stopwords
 from nltk import pos_tag
-# nltk.download('averaged_perceptron_tagger')
+nltk.download('averaged_perceptron_tagger')
 from gensim.test.utils import datapath, get_tmpfile
 from gensim.models import KeyedVectors
 from gensim.scripts.glove2word2vec import glove2word2vec
