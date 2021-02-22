@@ -30,6 +30,7 @@ from keras.layers import LSTM, Embedding, Dense, TimeDistributed, Dropout, Bidir
 from keras.preprocessing.sequence import pad_sequences
 from keras.utils import to_categorical
 import seaborn as sns
+import pickle
 
 # First part: The Complex Word Identification Model:
 Dataset = namedtuple('Dataset', 'name, train, test')
@@ -233,6 +234,10 @@ sentence_lens = [len(sent) for sent in words]
 embedding_model = glove_models[0].model
 dimension = embedding_model.vector_size
 word2index, index2word, embedding = build_vocabulary(sentences, embedding_model, dimension)
+
+# save word to index in picklefile	
+with open('train.pickle', 'wb') as f:
+    pickle.dump({'word2index': word2index}, f)
 
 # Padding the input sequences and get the binaries labels
 words_with_indices = [[word2index[word] for word in sent] for sent in words]

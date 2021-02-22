@@ -2,8 +2,13 @@ from tensorflow.keras.models import load_model
 import torch
 from transformers import BertTokenizer, BertModel, BertForMaskedLM
 from wordfreq import zipf_frequency
+import pickle
 
 model_cwi = load_model('model_CWI_full.h5')
+
+with open('train.pickle', 'rb') as f:
+    word2index = pickle.load(f)
+word2index = word2index['word2index']    
 
 # Now, let´s define some useful functions in order to use the CWI with some out of samples sentences
 # Function for clean the data and remove non characters symbols
